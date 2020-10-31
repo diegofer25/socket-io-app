@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/"
+    "start": "npm run build && node dist/index.js",
+    "build": "npm run clear && npm i && tsc",
+    "clear": "npm run clear:modules && npm run clear:dist",
+    "clear:modules": "rm -rf node_modules",
+    "clear:dist": "rm -rf dist"
   },
   "keywords": [],
   "author": "",
