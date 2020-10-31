@@ -1,6 +1,6 @@
 import http from "http";
 
-export default http.createServer((req, res) => {
+module.exports = http.createServer((req, res) => {
   res.end("Hello from API");
 });
 
