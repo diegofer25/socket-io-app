@@ -19,23 +19,6 @@
       <input id="input" autocomplete="off" />
       <button id="send">Send</button>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      const messages = document.getElementById('messages')
-      const input = document.getElementById('input')
-
-      document.getElementById('send').addEventListener('click', (e) => {
-        socket.emit('message', input.value);
-        input.value = ''
-        return false;
-      })
-
-      socket.on('message', function(msg){
-        const message = document.createElement('li')
-        message.innerText = msg
-        messages.append(message);
-      });
-    </script>
+    <script src="src/index.ts"></script>
   </body>
 </html>

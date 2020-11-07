@@ -6,7 +6,9 @@
   "scripts": {
     "serve": "npm run clear:dist && npm run compile && node dist/index.js",
     "start": "npm run build && node dist/index.js",
-    "build": "npm run clear && npm i && npm run compile",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "npm run clear && npm i && npm run compile",
+    "build:client": "cd ./client && npm run build",
     "clear": "npm run clear:modules && npm run clear:dist",
     "clear:modules": "rm -rf node_modules",
     "clear:dist": "rm -rf dist",

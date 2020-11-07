@@ -5,7 +5,7 @@ import express from "express";
 import { Server as SocketServer, Socket } from "socket.io";
 
 const PORT = process.env.PORT || 8080;
-const PUBLIC_DIRECTORY = path.join(__dirname, "../public");
+const CLIENT_DIRECTORY = path.join(__dirname, "../client/dist");
 const options = {
   key: fs.readFileSync("key.pem"),
   cert: fs.readFileSync("cert.pem")
@@ -15,7 +15,7 @@ const server = https.createServer(options, app);
 const io = new SocketServer(server);
 
 app.use(express.urlencoded());
-app.use(express.static(PUBLIC_DIRECTORY));
+app.use(express.static(CLIENT_DIRECTORY));
 
 io.on("connection", (socket: Socket) => {
   console.log("a user connected", socket.id);
@@ -30,6 +30,5 @@ io.on("connection", (socket: Socket) => {
 });
 
 server.listen(PORT, () => {
-  console.log(PUBLIC_DIRECTORY);
   console.log("Server is running at port", PORT);
 });
