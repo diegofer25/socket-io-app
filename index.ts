@@ -1,12 +1,17 @@
-import http from "http";
+import https from "https";
 import path from "path";
+import fs from "fs";
 import express from "express";
 import { Server as SocketServer, Socket } from "socket.io";
 
 const PORT = process.env.PORT || 8080;
 const PUBLIC_DIRECTORY = path.join(__dirname, "../public");
+const options = {
+  key: fs.readFileSync("key.pem"),
+  cert: fs.readFileSync("cert.pem")
+};
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer(options, app);
 const io = new SocketServer(server);
 
 app.use(express.urlencoded());
