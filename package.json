@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "npm run clear:dist && npm run compile && node dist/index.js",
     "start": "npm run build && node dist/index.js",
     "build": "npm run clear && npm i && npm run compile",
     "clear": "npm run clear:modules && npm run clear:dist",
