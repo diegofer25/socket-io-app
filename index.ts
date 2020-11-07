@@ -20,7 +20,7 @@ app.use(express.static(CLIENT_DIRECTORY));
 io.on("connection", (socket: Socket) => {
   console.log("a user connected", socket.id);
 
-  socket.on("message", (msg) => {
+  socket.on("message", (msg: string) => {
     io.emit("message", msg);
   });
 
