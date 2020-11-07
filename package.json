@@ -10,8 +10,6 @@
     "clear:modules": "rm -rf node_modules",
     "clear:dist": "rm -rf dist",
     "compile": "tsc",
-    "upload": "npm run compile && gsutil cp -r ./dist/* gs://engine-bucket/app/",
-    "deploy": "npm run build && npm run upload",
     "remote": "gcloud compute ssh node-app --zone us-central1-a"
   },
   "keywords": [],
